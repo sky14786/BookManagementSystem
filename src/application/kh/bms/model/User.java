@@ -12,8 +12,7 @@ public class User {
 	}
 
 	private int userNo;
-	private String id, pw, name, addr;
-	private boolean isFemale;
+	private String id, pw, name, addr, gender;
 
 	public User() {
 	}
@@ -22,13 +21,13 @@ public class User {
 		return no;
 	}
 
-	public User(String id, String pw, String name, String addr, boolean isFemale) {
+	public User(String id, String pw, String name, String addr, String gender) {
 		this.userNo = no;
 		this.id = id;
 		this.pw = pw;
 		this.name = name;
 		this.addr = addr;
-		this.isFemale = isFemale;
+		this.gender = gender;
 	}
 
 	public static void addUser() {
@@ -71,12 +70,12 @@ public class User {
 		this.addr = addr;
 	}
 
-	public boolean isFemale() {
-		return isFemale;
+	public String getGender() {
+		return gender;
 	}
 
-	public void setFemale(boolean isFemale) {
-		this.isFemale = isFemale;
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
 }
