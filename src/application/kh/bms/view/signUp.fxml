@@ -31,25 +31,25 @@
 				<Font name="NanumSquare Regular" size="16.0" />
 			</font>
 		</Button>
-		<TextField fx:id="tfId" layoutX="234.0" layoutY="84.0"
+		<TextField fx:id="tfId" layoutX="198.0" layoutY="84.0"
 			prefHeight="31.0" prefWidth="212.0" />
-		<Label alignment="CENTER_RIGHT" layoutX="155.0" layoutY="84.0"
+		<Label alignment="CENTER_RIGHT" layoutX="119.0" layoutY="84.0"
 			prefHeight="31.0" prefWidth="70.0" text="ID :" textAlignment="CENTER"
 			textFill="#575757">
 			<font>
 				<Font name="NanumSquare Regular" size="16.0" />
 			</font>
 		</Label>
-		<Label alignment="CENTER_RIGHT" layoutX="155.0" layoutY="128.0"
+		<Label alignment="CENTER_RIGHT" layoutX="119.0" layoutY="128.0"
 			prefHeight="31.0" prefWidth="70.0" text="PW :" textAlignment="CENTER"
 			textFill="#575757">
 			<font>
 				<Font name="NanumSquare Regular" size="16.0" />
 			</font>
 		</Label>
-		<TextField fx:id="tfName" layoutX="234.0" layoutY="172.0"
+		<TextField fx:id="tfName" layoutX="198.0" layoutY="172.0"
 			prefHeight="31.0" prefWidth="212.0" />
-		<Label alignment="CENTER_RIGHT" layoutX="155.0" layoutY="172.0"
+		<Label alignment="CENTER_RIGHT" layoutX="119.0" layoutY="172.0"
 			prefHeight="31.0" prefWidth="70.0" text="이름 :" textAlignment="CENTER"
 			textFill="#575757">
 			<font>
@@ -72,16 +72,31 @@
 		<ComboBox fx:id="comGender" layoutX="232.0" layoutY="260.0"
 			onAction="#comboChanged" prefHeight="31.0" prefWidth="137.0"
 			promptText="성별" />
-		<TextField fx:id="tfAddr" layoutX="234.0" layoutY="215.0"
+		<TextField fx:id="tfAddr" layoutX="198.0" layoutY="215.0"
 			prefHeight="31.0" prefWidth="212.0" />
-		<Label alignment="CENTER_RIGHT" layoutX="155.0" layoutY="215.0"
+		<Label alignment="CENTER_RIGHT" layoutX="119.0" layoutY="215.0"
 			prefHeight="31.0" prefWidth="70.0" text="주소 :" textAlignment="CENTER"
 			textFill="#575757">
 			<font>
 				<Font name="NanumSquare Regular" size="16.0" />
 			</font>
 		</Label>
-		<PasswordField layoutX="234.0" layoutY="128.0"
-			prefHeight="31.0" prefWidth="212.0" fx:id="tfPw" />
+		<PasswordField fx:id="tfPw" layoutX="198.0"
+			layoutY="128.0" prefHeight="31.0" prefWidth="212.0" />
+		<Label layoutX="500.0" layoutY="84.0" prefHeight="31.0"
+			prefWidth="70.0" textAlignment="CENTER" textFill="#575757"
+			fx:id="lDuText">
+			<font>
+				<Font name="NanumSquare Regular" size="16.0" />
+			</font>
+		</Label>
+		<Button fx:id="btnDuplicateCheck" layoutX="419.0"
+			layoutY="83.0" mnemonicParsing="false" onAction="#duplicateCheck"
+			prefHeight="32.0" prefWidth="70.0"
+			style="-fx-background-color: #E6E6FA;" text="중복확인" textFill="GREY">
+			<font>
+				<Font name="NanumSquare Regular" size="13.0" />
+			</font>
+		</Button>
 	</children>
 </Pane>

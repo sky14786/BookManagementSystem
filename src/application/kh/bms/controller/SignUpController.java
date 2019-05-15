@@ -29,7 +29,7 @@ public class SignUpController {
 			fw.write(newUser.getPw() + "\t");
 			fw.write(newUser.getName() + "\t");
 			fw.write(newUser.getGender() + "\t");
-			fw.write(newUser.getAddr() + "\n");
+			fw.write(newUser.getAddr() + "\r\n");
 			fw.flush();
 			fw.close();
 		} catch (IOException e) {
@@ -38,7 +38,8 @@ public class SignUpController {
 
 	}
 
-	public void duplicateCheck(String id) {
+	public boolean duplicateCheck(String id) {
+		boolean isDuplicate = false;
 		try {
 			String fileName = "C:\\test\\user.txt";
 			File file = new File(fileName);
@@ -47,11 +48,15 @@ public class SignUpController {
 			String read = null;
 			while ((read = br.readLine()) != null) {
 				StringTokenizer temp = new StringTokenizer(read, " ");
-
+				if (id != temp.nextToken()) {
+					isDuplicate = false;
+				} else {
+					isDuplicate = true;
+				}
 			}
-
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		return isDuplicate;
 	}
 }
