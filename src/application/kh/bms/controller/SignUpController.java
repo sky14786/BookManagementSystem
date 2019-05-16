@@ -47,9 +47,14 @@ public class SignUpController {
 			BufferedReader br = new BufferedReader(fr);
 			String read = null;
 			while ((read = br.readLine()) != null) {
-				StringTokenizer temp = new StringTokenizer(read, " ");
-				if (id != temp.nextToken()) {
+				String test = read;
+				StringTokenizer temp = new StringTokenizer(test, "\t");
+				temp.nextToken();
+				String tempID = temp.nextToken();
+				System.out.println(tempID);
+				if (id.equals(tempID)) {
 					isDuplicate = false;
+					return isDuplicate;
 				} else {
 					isDuplicate = true;
 				}

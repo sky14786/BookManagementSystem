@@ -41,7 +41,7 @@ public class SignUpView implements Initializable {
 	@FXML
 	private void create() {
 		signUpController.createUser(tfId.getText(), tfPw.getText(), tfName.getText(), tfAddr.getText(),
-				comGender.getPromptText());
+				comGender.getTypeSelector());
 	}
 
 	@FXML
