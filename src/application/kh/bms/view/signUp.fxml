@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.kh.bms.view.SignUpView">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.kh.bms.view.UserUpdateView">
 	<children>
 		<Button fx:id="btnCreate" layoutX="155.0" layoutY="315.0" mnemonicParsing="false" onAction="#create" prefHeight="38.0" prefWidth="89.0" style="-fx-background-color: #E6E6FA;" text="회원가입" textFill="GREY">
 			<font>

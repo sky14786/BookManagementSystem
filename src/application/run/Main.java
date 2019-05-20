@@ -1,4 +1,4 @@
-package application;
+package application.run;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,9 +11,9 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			Parent root = FXMLLoader
-					.load(getClass().getClassLoader().getResource("application/kh/bms/view/login.fxml"));
+					.load(getClass().getClassLoader().getResource("application/kh/bms/view/userUpdate.fxml"));
 			primaryStage.setScene(new Scene(root));
-			primaryStage.setTitle("Book Management System");
+			primaryStage.setTitle("Book Management System - User Update");
 			primaryStage.show();
 		} catch (Exception e) {
 			e.printStackTrace();

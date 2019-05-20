@@ -8,62 +8,93 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.kh.bms.view.SignUpView">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity"
+	minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+	prefWidth="600.0" style="-fx-background-color: #ffffff;"
+	xmlns="http://javafx.com/javafx/8.0.171"
+	xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="application.kh.bms.view.UserUpdateView">
 	<children>
-		<Button fx:id="btnCreate" layoutX="155.0" layoutY="315.0" mnemonicParsing="false" onAction="#create" prefHeight="38.0" prefWidth="89.0" style="-fx-background-color: #E6E6FA;" text="회원가입" textFill="GREY">
+		<Button fx:id="btnUpdate" layoutX="155.0" layoutY="315.0"
+			mnemonicParsing="false" prefHeight="38.0" prefWidth="89.0"
+			style="-fx-background-color: #E6E6FA;" text="정보수정" textFill="GREY">
 			<font>
 				<Font name="NanumSquare Regular" size="16.0" />
 			</font>
 		</Button>
-		<Button fx:id="btnBack" layoutX="347.0" layoutY="315.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="89.0" style="-fx-background-color: #E6E6FA;" text="뒤로가기" textFill="GREY">
+		<Button fx:id="btnBack" layoutX="347.0" layoutY="315.0"
+			mnemonicParsing="false" prefHeight="38.0" prefWidth="89.0"
+			style="-fx-background-color: #E6E6FA;" text="뒤로가기" textFill="GREY" onAction="#backMove">
 			<font>
 				<Font name="NanumSquare Regular" size="16.0" />
 			</font>
 		</Button>
-		<Label alignment="CENTER_RIGHT" layoutX="119.0" layoutY="84.0" prefHeight="31.0" prefWidth="70.0" text="ID :" textAlignment="CENTER" textFill="#575757">
+		<Label alignment="CENTER_RIGHT" layoutX="119.0" layoutY="84.0"
+			prefHeight="31.0" prefWidth="70.0" text="ID :" textAlignment="CENTER"
+			textFill="#575757">
 			<font>
 				<Font name="NanumSquare Regular" size="16.0" />
 			</font>
 		</Label>
-		<Label alignment="CENTER_RIGHT" layoutX="119.0" layoutY="128.0" prefHeight="31.0" prefWidth="70.0" text="PW :" textAlignment="CENTER" textFill="#575757">
+		<Label alignment="CENTER_RIGHT" layoutX="119.0" layoutY="128.0"
+			prefHeight="31.0" prefWidth="70.0" text="PW :" textAlignment="CENTER"
+			textFill="#575757">
 			<font>
 				<Font name="NanumSquare Regular" size="16.0" />
 			</font>
 		</Label>
-		<TextField fx:id="tfName" layoutX="198.0" layoutY="172.0" prefHeight="31.0" prefWidth="212.0" />
-		<Label alignment="CENTER_RIGHT" layoutX="119.0" layoutY="172.0" prefHeight="31.0" prefWidth="70.0" text="이름 :" textAlignment="CENTER" textFill="#575757">
+		<TextField fx:id="tfName" layoutX="198.0" layoutY="172.0"
+			prefHeight="31.0" prefWidth="212.0" />
+		<Label alignment="CENTER_RIGHT" layoutX="119.0" layoutY="172.0"
+			prefHeight="31.0" prefWidth="70.0" text="이름 :" textAlignment="CENTER"
+			textFill="#575757">
 			<font>
 				<Font name="NanumSquare Regular" size="16.0" />
 			</font>
 		</Label>
-		<Label alignment="CENTER" layoutX="182.0" layoutY="25.0" prefHeight="48.0" prefWidth="237.0" text="User Update" textAlignment="CENTER" textFill="#575757">
+		<Label alignment="CENTER" layoutX="182.0" layoutY="25.0"
+			prefHeight="48.0" prefWidth="237.0" text="User Update"
+			textAlignment="CENTER" textFill="#575757">
 			<font>
 				<Font size="24.0" />
 			</font>
 		</Label>
-		<ComboBox fx:id="comGender" layoutX="432.0" layoutY="215.0" onAction="#comboChanged" prefHeight="31.0" prefWidth="137.0" promptText="성별" />
-		<TextField fx:id="tfAddr" layoutX="198.0" layoutY="215.0" prefHeight="31.0" prefWidth="212.0" />
-		<Label alignment="CENTER_RIGHT" layoutX="119.0" layoutY="215.0" prefHeight="31.0" prefWidth="70.0" text="주소 :" textAlignment="CENTER" textFill="#575757">
+		<ComboBox fx:id="comGender" layoutX="432.0" layoutY="215.0"
+			onAction="#comboChanged" prefHeight="31.0" prefWidth="137.0"
+			promptText="성별" />
+		<TextField fx:id="tfAddr" layoutX="198.0" layoutY="215.0"
+			prefHeight="31.0" prefWidth="212.0" />
+		<Label alignment="CENTER_RIGHT" layoutX="119.0" layoutY="215.0"
+			prefHeight="31.0" prefWidth="70.0" text="주소 :" textAlignment="CENTER"
+			textFill="#575757">
 			<font>
 				<Font name="NanumSquare Regular" size="16.0" />
 			</font>
 		</Label>
-		<PasswordField fx:id="tfPw" layoutX="198.0" layoutY="128.0" prefHeight="31.0" prefWidth="212.0" />
-		<Label fx:id="lDuText" layoutX="500.0" layoutY="84.0" prefHeight="31.0" prefWidth="70.0" textAlignment="CENTER" textFill="#575757">
+		<PasswordField fx:id="tfPw" layoutX="198.0"
+			layoutY="128.0" prefHeight="31.0" prefWidth="212.0" />
+		<Label fx:id="lDuText" layoutX="500.0" layoutY="84.0"
+			prefHeight="31.0" prefWidth="70.0" textAlignment="CENTER"
+			textFill="#575757">
 			<font>
 				<Font name="NanumSquare Regular" size="16.0" />
 			</font>
 		</Label>
-      <TextField fx:id="tfAddr1" layoutX="198.0" layoutY="260.0" prefHeight="31.0" prefWidth="212.0" />
-      <Label alignment="CENTER_RIGHT" layoutX="119.0" layoutY="260.0" prefHeight="31.0" prefWidth="70.0" text="연락처 :" textAlignment="CENTER" textFill="#575757">
-         <font>
-            <Font name="NanumSquare Regular" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="198.0" layoutY="84.0" prefHeight="31.0" prefWidth="212.0" text="your ID" textAlignment="CENTER" textFill="#575757">
-         <font>
-            <Font name="NanumSquare Regular" size="16.0" />
-         </font>
-      </Label>
+		<TextField fx:id="tfAddr1" layoutX="198.0" layoutY="260.0"
+			prefHeight="31.0" prefWidth="212.0" />
+		<Label alignment="CENTER_RIGHT" layoutX="119.0" layoutY="260.0"
+			prefHeight="31.0" prefWidth="70.0" text="연락처 :"
+			textAlignment="CENTER" textFill="#575757">
+			<font>
+				<Font name="NanumSquare Regular" size="16.0" />
+			</font>
+		</Label>
+		<Label layoutX="198.0" layoutY="84.0" prefHeight="31.0"
+			prefWidth="212.0" text="your ID" textAlignment="CENTER"
+			textFill="#575757">
+			<font>
+				<Font name="NanumSquare Regular" size="16.0" />
+			</font>
+		</Label>
 	</children>
 </Pane>
