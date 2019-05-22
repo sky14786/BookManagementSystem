@@ -16,8 +16,8 @@ public class UserUpdateController {
 	private static User nowUser = new User(3, "admin", "root", "test", "경기도 안산시", "남자", "010-1234-5678");
 	private int nowUserIndex;
 
-	public void updateUser(int userNo, String pw, String name, String addr, String gender, String phone) {
-		nowUser = new User(userNo, nowUser.getId(), pw, name, addr, gender, phone);
+	public void updateUser(int userNo, String id, String pw, String name, String addr, String gender, String phone) {
+		nowUser = new User(userNo, id, pw, name, addr, gender, phone);
 		users.set(nowUserIndex, nowUser);
 		saveUsers();
 	}

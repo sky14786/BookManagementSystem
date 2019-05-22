@@ -34,9 +34,15 @@ public class UserUpdateView implements Initializable {
 	private Label lDuText;
 	@FXML
 	private Text tID;
+	
+	private int userNo;
 
 	private ObservableList<String> list = FXCollections.observableArrayList("남자", "여자");
-
+	public void test() {
+		tfName.getText();  
+	}
+	
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		comGender.setItems(list);
@@ -48,8 +54,9 @@ public class UserUpdateView implements Initializable {
 	}
 
 	@FXML
-	public void testLoad(ActionEvent ev) {
+	public void userInformationLoad(ActionEvent ev) {
 		User user = userUpdateController.loadData();
+		userNo = user.getUserNo();
 		tID.setText(user.getId());
 		tfPw.setText(user.getPw());
 		tfName.setText(user.getName());
@@ -59,19 +66,10 @@ public class UserUpdateView implements Initializable {
 	}
 
 	@FXML
-	private void update() {
-		userUpdateController.updateUser(tfPw.getText(), tfName.getText(), tfAddr.getText(), comGender.getPromptText(),
+	private void updateUser() {
+		userUpdateController.updateUser(userNo,tID.getText(),tfPw.getText(), tfName.getText(), tfAddr.getText(), comGender.getPromptText(),
 				tfPhone.getText());
 	}
-
-//	@FXML
-//	private void duplicateCheck() {
-//		if (signUpController.duplicateCheck(tfId.getText())) {
-//			lDuText.setText("사용가능");
-//		} else {
-//			lDuText.setText("사용불가");
-//		}
-//	}
 
 	@FXML
 	private void comboChanged(ActionEvent e) {
