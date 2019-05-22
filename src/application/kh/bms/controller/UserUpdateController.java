@@ -1,70 +1,81 @@
 package application.kh.bms.controller;
 
-import java.io.FileInputStream;
+import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import java.util.StringTokenizer;
 
 import application.kh.bms.model.User;
 
 public class UserUpdateController {
-	ArrayList<User> users = new ArrayList<User>();
+	private static ArrayList<User> users = new ArrayList<User>();
+	private static User nowUser = new User(3, "admin", "root", "test", "경기도 안산시", "남자", "010-1234-5678");
+	private int nowUserIndex;
 
-	public void updateUser(String pw, String name, String Addr, String gender) {
-
+	public void updateUser(int userNo, String pw, String name, String addr, String gender, String phone) {
+		nowUser = new User(userNo, nowUser.getId(), pw, name, addr, gender, phone);
+		users.set(nowUserIndex, nowUser);
+		saveUsers();
 	}
 
 	public void loadUser() {
+		try {
+			String fileName = "C:\\test\\user.txt";
+			File file = new File(fileName);
+			FileReader fr = new FileReader(file);
+			BufferedReader br = new BufferedReader(fr);
+			String temp;
+			while ((temp = br.readLine()) != null) {
+				StringTokenizer st = new StringTokenizer(temp, "\t");
+				int userNo = Integer.parseInt(st.nextToken());
+				String id = st.nextToken();
+				String pw = st.nextToken();
+				String name = st.nextToken();
+				String gender = st.nextToken();
+				String addr = st.nextToken();
+				String phone = st.nextToken();
+
+				User user = new User(userNo, id, pw, name, gender, addr, phone);
+				users.add(user);
+			}
+			br.close();
+			fr.close();
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 	}
 
-	public void loadData() {
-
+	private void saveUsers() {
+		try {
+			String fileName = "C:\\test\\user.txt";
+			File file = new File(fileName);
+			FileWriter fw = new FileWriter(file);
+			for (int i = 0; i < users.size(); i++) {
+				fw.write(users.get(i).getUserNo() + "\t");
+				fw.write(users.get(i).getId() + "\t");
+				fw.write(users.get(i).getPw() + "\t");
+				fw.write(users.get(i).getName() + "\t");
+				fw.write(users.get(i).getGender() + "\t");
+				fw.write(users.get(i).getAddr() + "\t");
+				fw.write(users.get(i).getPhone() + "\r\n");
+				fw.flush();
+			}
+			fw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
-//	public void loadData() {
-//	try {
-//		String fileName = "C:\\test\\user.xlsx";
-//		FileInputStream fis = new FileInputStream(fileName);
-//		HSSFWorkbook workbook = new HSSFWorkbook(fis);
-//		HSSFSheet sheet = workbook.getSheetAt(0);
-//		int rows = sheet.getPhysicalNumberOfRows();
-//		for (int rowIndex = 1; rowIndex < rows; rowIndex++) {
-//			HSSFRow row = sheet.getRow(rowIndex);
-//			if (row != null) {
-//				int cells = row.getPhysicalNumberOfCells();
-//				for (int columnIndex = 0; columnIndex <= cells; columnIndex++) {
-//					HSSFCell cell = row.getCell(columnIndex); // 셀에 담겨있는 값을 읽는다.
-//					String value = "";
-//					switch (cell.getCellType()) { // 각 셀에 담겨있는 데이터의 타입을 체크하고 해당 타입에 맞게 가져온다.
-//					case HSSFCell.CELL_TYPE_NUMERIC:
-//						value = cell.getNumericCellValue() + "";
-//						break;
-//					case HSSFCell.CELL_TYPE_STRING:
-//						value = cell.getStringCellValue() + "";
-//						break;
-//					case HSSFCell.CellType.BLANK:
-//						value = cell.getBooleanCellValue() + "";
-//						break;
-//					case HSSFCell.CELL_TYPE_ERROR:
-//						value = cell.getErrorCellValue() + "";
-//						break;
-//					}
-//					if (cell.getCellType() == cell.CellType.BLANK)
-//						System.out.println(value);
-//				}
-//			}
-//		}
-//	} catch (FileNotFoundException e) {
-//		e.printStackTrace();
-//	} catch (IOException e) {
-//		e.printStackTrace();
-//	}
-//
-//}
+	public User loadData() {
+		return nowUser;
+	}
+
 }

@@ -3,16 +3,24 @@ package application.kh.bms.model;
 public class User {
 	private static int no = 0;
 
+	private int userNo;
+	private String id, pw, name, addr, gender, phone;
+
 	public int getUserNo() {
 		return userNo;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 	public void setUserNo(int userNo) {
 		this.userNo = userNo;
 	}
-
-	private int userNo;
-	private String id, pw, name, addr, gender;
 
 	public User() {
 	}
@@ -21,13 +29,14 @@ public class User {
 		return no;
 	}
 
-	public User(String id, String pw, String name, String addr, String gender) {
-		this.userNo = no;
+	public User(int userNo, String id, String pw, String name, String addr, String gender, String phone) {
+		this.userNo = userNo;
 		this.id = id;
 		this.pw = pw;
 		this.name = name;
 		this.addr = addr;
 		this.gender = gender;
+		this.phone = phone;
 	}
 
 	public static void addUser() {

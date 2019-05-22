@@ -3,9 +3,8 @@ package application.kh.bms.view;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import com.sun.media.jfxmediaimpl.platform.Platform;
-
 import application.kh.bms.controller.UserUpdateController;
+import application.kh.bms.model.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -17,21 +16,24 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 
 public class UserUpdateView implements Initializable {
 	UserUpdateController userUpdateController = new UserUpdateController();
 	@FXML
-	private Button btnUpdate, btnBack;
+	private Button btnUpdate, btnBack, btnTest;
 	@FXML
 	private ComboBox comGender;
 	@FXML
 	private CheckBox checkAgree;
 	@FXML
-	private TextField tfName, tfAddr;
+	private TextField tfName, tfAddr, tfPhone;
 	@FXML
 	private PasswordField tfPw;
 	@FXML
-	private Label lDuText, lID;
+	private Label lDuText;
+	@FXML
+	private Text tID;
 
 	private ObservableList<String> list = FXCollections.observableArrayList("남자", "여자");
 
@@ -46,14 +48,20 @@ public class UserUpdateView implements Initializable {
 	}
 
 	@FXML
-	private void loadUser(String id, String name, String addr, String gender) {
-
+	public void testLoad(ActionEvent ev) {
+		User user = userUpdateController.loadData();
+		tID.setText(user.getId());
+		tfPw.setText(user.getPw());
+		tfName.setText(user.getName());
+		tfAddr.setText(user.getAddr());
+		comGender.setPromptText(user.getGender());
+		tfPhone.setText(user.getPhone());
 	}
 
 	@FXML
 	private void update() {
-		userUpdateController.updateUser(tfPw.getText(), tfName.getText(), tfAddr.getText(),
-				comGender.getTypeSelector());
+		userUpdateController.updateUser(tfPw.getText(), tfName.getText(), tfAddr.getText(), comGender.getPromptText(),
+				tfPhone.getText());
 	}
 
 //	@FXML
