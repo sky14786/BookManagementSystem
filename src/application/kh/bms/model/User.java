@@ -1,7 +1,14 @@
 package application.kh.bms.model;
 
-public class User {
-	private static int no = 0;
+import java.io.Serializable;
+
+public class User implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4193961501486761372L;
+
+//	private static int no = 0;
 
 	private int userNo;
 	private String id, pw, name, addr, gender, phone;
@@ -25,9 +32,9 @@ public class User {
 	public User() {
 	}
 
-	public static int getNo() {
-		return no;
-	}
+//	public static int getNo() {
+//		return no;
+//	}
 
 	public User(int userNo, String id, String pw, String name, String addr, String gender, String phone) {
 		this.userNo = userNo;
@@ -39,13 +46,13 @@ public class User {
 		this.phone = phone;
 	}
 
-	public static void addUser() {
-		no++;
-	}
-
-	public static void subtractUser() {
-		no--;
-	}
+//	public static void addUser() {
+//		no++;
+//	}
+//
+//	public static void subtractUser() {
+//		no--;
+//	}
 
 	public String getId() {
 		return id;
@@ -85,6 +92,12 @@ public class User {
 
 	public void setGender(String gender) {
 		this.gender = gender;
+	}
+
+	@Override
+	public String toString() {
+		return "User [userNo=" + userNo + ", id=" + id + ", pw=" + pw + ", name=" + name + ", addr=" + addr
+				+ ", gender=" + gender + ", phone=" + phone + "]";
 	}
 
 }

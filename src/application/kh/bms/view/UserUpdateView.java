@@ -34,15 +34,15 @@ public class UserUpdateView implements Initializable {
 	private Label lDuText;
 	@FXML
 	private Text tID;
-	
+
 	private int userNo;
 
 	private ObservableList<String> list = FXCollections.observableArrayList("남자", "여자");
+
 	public void test() {
-		tfName.getText();  
+		System.out.println(comGender.getValue());
 	}
-	
-	
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		comGender.setItems(list);
@@ -67,13 +67,16 @@ public class UserUpdateView implements Initializable {
 
 	@FXML
 	private void updateUser() {
-		userUpdateController.updateUser(userNo,tID.getText(),tfPw.getText(), tfName.getText(), tfAddr.getText(), comGender.getPromptText(),
-				tfPhone.getText());
+		if (userUpdateController.pwCheck(tfPw.getText())) {
+			userUpdateController.updateUser(userNo, tID.getText(), tfPw.getText(), tfName.getText(), tfAddr.getText(),
+					comGender.getValue().toString(), tfPhone.getText());
+		} else {
+			System.out.println("비밀번호 : 8~12자");
+		}
 	}
 
 	@FXML
 	private void comboChanged(ActionEvent e) {
-
 	}
 
 }
