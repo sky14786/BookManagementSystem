@@ -27,25 +27,39 @@ public class UserUpdateView implements Initializable {
 	@FXML
 	private CheckBox checkAgree;
 	@FXML
-	private TextField tfName, tfAddr, tfPhone;
+	private TextField tfName, tfAddr, tfPhone, tfID;
 	@FXML
 	private PasswordField tfPw;
 	@FXML
-	private Label lDuText;
+	private Label lCheck;
 	@FXML
 	private Text tID;
 
-	private int userNo;
+	private int userNo = 0;
 
-	private ObservableList<String> list = FXCollections.observableArrayList("남자", "여자");
+	private ObservableList<String> list = FXCollections.observableArrayList("Male", "Female");
+
+	User user = null;
 
 	public void test() {
-		System.out.println(comGender.getValue());
+		userUpdateController.enrollTest(userNo++, tfID.getText(), tfPw.getText(), tfName.getText(), tfAddr.getText(),
+				comGender.getValue().toString(), tfPhone.getText());
+		resetTextfield();
+	}
+
+	public void resetTextfield() {
+		tfID.setText("");
+		tfPw.setText("");
+		tfName.setText("");
+		tfAddr.setText("");
+		tfPhone.setText("");
+		comGender.setPromptText("Gender");
 	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		comGender.setItems(list);
+		user = userUpdateController.loadData(0);
 	}
 
 	@FXML
@@ -55,7 +69,6 @@ public class UserUpdateView implements Initializable {
 
 	@FXML
 	public void userInformationLoad(ActionEvent ev) {
-		User user = userUpdateController.loadData();
 		userNo = user.getUserNo();
 		tID.setText(user.getId());
 		tfPw.setText(user.getPw());
@@ -71,7 +84,7 @@ public class UserUpdateView implements Initializable {
 			userUpdateController.updateUser(userNo, tID.getText(), tfPw.getText(), tfName.getText(), tfAddr.getText(),
 					comGender.getValue().toString(), tfPhone.getText());
 		} else {
-			System.out.println("비밀번호 : 8~12자");
+			lCheck.setText("PW's Length : 8 ~ 12 ");
 		}
 	}
 

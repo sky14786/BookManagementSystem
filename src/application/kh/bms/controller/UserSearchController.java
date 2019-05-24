@@ -12,17 +12,20 @@ import application.kh.bms.model.UserTable;
 public class UserSearchController {
 
 	public ArrayList<UserTable> userTableLoad() {
-		String fileName = "C:\\test\\user.txt";
+		String fileName = "user.txt";
 		File file = new File(fileName);
 		ObjectInputStream ois = null;
-//		ArrayList<User> temp = new ArrayList<User>();
+		ArrayList<User> temp = new ArrayList<User>();
 		ArrayList<UserTable> temp2 = new ArrayList<UserTable>();
 		try {
 			FileInputStream fis = new FileInputStream(file);
 			ois = new ObjectInputStream(fis);
-
-//			temp = (ArrayList<User>) ois.readObject();
-			temp2 = (ArrayList<UserTable>) ois.readObject();
+			temp = (ArrayList<User>) ois.readObject();
+			for (int i = 0; i < temp.size(); i++) {
+				UserTable ut = new UserTable(temp.get(i).getUserNo(), temp.get(i).getId(), temp.get(i).getName(),
+						temp.get(i).getAddr(), temp.get(i).getGender(), temp.get(i).getPhone());
+				temp2.add(ut);
+			}
 
 		} catch (Exception e) {
 			e.printStackTrace();

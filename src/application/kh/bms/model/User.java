@@ -8,8 +8,6 @@ public class User implements Serializable {
 	 */
 	private static final long serialVersionUID = -4193961501486761372L;
 
-//	private static int no = 0;
-
 	private int userNo;
 	private String id, pw, name, addr, gender, phone;
 
@@ -32,10 +30,6 @@ public class User implements Serializable {
 	public User() {
 	}
 
-//	public static int getNo() {
-//		return no;
-//	}
-
 	public User(int userNo, String id, String pw, String name, String addr, String gender, String phone) {
 		this.userNo = userNo;
 		this.id = id;
@@ -45,14 +39,6 @@ public class User implements Serializable {
 		this.gender = gender;
 		this.phone = phone;
 	}
-
-//	public static void addUser() {
-//		no++;
-//	}
-//
-//	public static void subtractUser() {
-//		no--;
-//	}
 
 	public String getId() {
 		return id;

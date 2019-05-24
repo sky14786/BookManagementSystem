@@ -42,7 +42,7 @@ public class UserSearchView implements Initializable {
 	private ObservableList<String> comboList = FXCollections.observableArrayList("userNo", "ID", "name", "addr",
 			"gender", "phone");
 
-	public ObservableList<UserTable> list = FXCollections.observableArrayList(users);
+	public ObservableList<UserTable> list = FXCollections.observableArrayList();
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -52,9 +52,15 @@ public class UserSearchView implements Initializable {
 		addr.setCellValueFactory(new PropertyValueFactory<UserTable, String>("addr"));
 		gender.setCellValueFactory(new PropertyValueFactory<UserTable, String>("gender"));
 		phone.setCellValueFactory(new PropertyValueFactory<UserTable, String>("phone"));
+//		UserTable ss = new UserTable(4, "admin", "test", "test", "test", "test");
+//		list.add(ss);
+		users = userSearchController.userTableLoad();
+		for (int i = 0; i < users.size(); i++) {
+			list.add(users.get(i));
+		}
+
 		table.setItems(list);
 		comboBox.setItems(comboList);
-		users = userSearchController.userTableLoad();
 
 	}
 }

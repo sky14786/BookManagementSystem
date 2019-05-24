@@ -1,15 +1,9 @@
 package application.kh.bms.model;
 
-import java.io.Serializable;
-
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
-public class UserTable implements Serializable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -3362265751350923789L;
+public class UserTable {
 	private final SimpleIntegerProperty userNo;
 	private final SimpleStringProperty id, name, addr, gender, phone;
 
