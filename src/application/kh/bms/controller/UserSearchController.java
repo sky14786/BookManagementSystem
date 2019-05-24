@@ -18,7 +18,7 @@ public class UserSearchController {
 		ArrayList<User> temp = new ArrayList<User>();
 		ArrayList<UserTable> temp2 = new ArrayList<UserTable>();
 		try {
-			FileInputStream fis = new FileInputStream(file);
+			FileInputStream fis = new FileInputStream(file); 
 			ois = new ObjectInputStream(fis);
 			temp = (ArrayList<User>) ois.readObject();
 			for (int i = 0; i < temp.size(); i++) {
