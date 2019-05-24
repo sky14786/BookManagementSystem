@@ -78,9 +78,8 @@
 				<Font name="BM JUA" size="28.0" />
 			</font>
 		</Label>
-		<Label fx:id="lDuText" layoutX="500.0" layoutY="84.0"
-			prefHeight="31.0" prefWidth="70.0" textAlignment="CENTER"
-			textFill="#575757">
+		<Label layoutX="500.0" layoutY="84.0" prefHeight="31.0"
+			prefWidth="70.0" textAlignment="CENTER" textFill="#575757">
 			<font>
 				<Font name="NanumSquare Regular" size="16.0" />
 			</font>
@@ -93,7 +92,7 @@
 			</font>
 		</Label>
 		<Text layoutX="197.0" layoutY="195.0" strokeType="OUTSIDE"
-			strokeWidth="0.0" text="Text" wrappingWidth="212.0000034570694">
+			strokeWidth="0.0" text="Text" wrappingWidth="212.0000034570694" fx:id="tID">
 			<font>
 				<Font name="NanumSquare Regular" size="16.0" />
 			</font>
@@ -101,7 +100,7 @@
 		<Button fx:id="btnTest" layoutX="432.0" layoutY="361.0"
 			mnemonicParsing="false" onAction="#test" prefHeight="38.0"
 			prefWidth="89.0" style="-fx-background-color: #E6E6FA;" text="테스트"
-			textFill="GREY">
+			textFill="GREY" visible="false">
 			<font>
 				<Font name="NanumSquare Regular" size="16.0" />
 			</font>
@@ -110,7 +109,7 @@
 			layoutY="127.0" prefHeight="31.0" prefWidth="212.0" visible="false" />
 		<Text layoutX="424.0" layoutY="237.0" strokeType="OUTSIDE"
 			strokeWidth="0.0" text="Password Check"
-			wrappingWidth="151.0000034570694" fx:id="lCheck">
+			wrappingWidth="151.0000034570694" fx:id="tCheck">
 			<font>
 				<Font name="NanumSquare Regular" size="15.0" />
 			</font>
