@@ -6,6 +6,8 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
@@ -39,16 +41,24 @@
 				<Font name="NanumSquare Bold" size="31.0" />
 			</font>
 		</Label>
-		<ComboBox fx:id="comboBox" layoutX="209.0" layoutY="91.0"
+		<ComboBox fx:id="searchType" layoutX="209.0" layoutY="91.0"
 			prefHeight="32.0" prefWidth="90.0" promptText="조건" />
-		<TextField alignment="CENTER" layoutX="316.0" layoutY="91.0"
-			prefHeight="32.0" prefWidth="167.0" promptText="#Keyword" />
-		<Button alignment="CENTER" layoutX="502.0" layoutY="91.0"
-			mnemonicParsing="false" prefHeight="32.0" prefWidth="75.0"
-			text="Search">
+		<TextField fx:id="tfKeyword" alignment="CENTER"
+			layoutX="316.0" layoutY="91.0" prefHeight="32.0" prefWidth="167.0"
+			promptText="#Keyword" />
+		<Button fx:id="btnSearch" alignment="CENTER" layoutX="502.0"
+			layoutY="91.0" mnemonicParsing="false" onAction="#search"
+			prefHeight="32.0" prefWidth="75.0" text="Search">
 			<font>
 				<Font name="NanumSquare Regular" size="14.0" />
 			</font>
 		</Button>
+		<ImageView fitHeight="32.0" fitWidth="53.0" layoutX="159.0"
+			layoutY="91.0" onMouseClicked="#refresh" pickOnBounds="true"
+			preserveRatio="true">
+			<image>
+				<Image url="@../../../../resource/refresh.png" />
+			</image>
+		</ImageView>
 	</children>
 </Pane>

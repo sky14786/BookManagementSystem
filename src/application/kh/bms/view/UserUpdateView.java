@@ -103,11 +103,6 @@ public class UserUpdateView implements Initializable {
 	}
 
 	@FXML
-	private void agreeUpdate() {
-
-	}
-
-	@FXML
 	private void comboChanged(ActionEvent e) {
 	}
 

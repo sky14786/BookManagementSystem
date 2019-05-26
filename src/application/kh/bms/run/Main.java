@@ -11,10 +11,10 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			Parent root = FXMLLoader
-					.load(getClass().getClassLoader().getResource("application/kh/bms/view/userUpdate.fxml"));
 //			Parent root = FXMLLoader
-//					.load(getClass().getClassLoader().getResource("application/kh/bms/view/userSearch.fxml"));
+//					.load(getClass().getClassLoader().getResource("application/kh/bms/view/userUpdate.fxml"));
+			Parent root = FXMLLoader
+					.load(getClass().getClassLoader().getResource("application/kh/bms/view/userSearch.fxml"));
 			primaryStage.setScene(new Scene(root));
 			primaryStage.setTitle("Book Management System - User Update");
 			primaryStage.show();

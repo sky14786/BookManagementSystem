@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class UserSearchView implements Initializable {
@@ -32,9 +33,11 @@ public class UserSearchView implements Initializable {
 	@FXML
 	private TableColumn<UserTable, String> phone;
 	@FXML
-	private ComboBox comboBox;
+	private ComboBox searchType;
 	@FXML
 	private Button btnSearch;
+	@FXML
+	private TextField tfKeyword;
 
 	UserSearchController userSearchController = new UserSearchController();
 	ArrayList<UserTable> users = new ArrayList<UserTable>();
@@ -50,7 +53,7 @@ public class UserSearchView implements Initializable {
 		id.setCellValueFactory(new PropertyValueFactory<UserTable, String>("id"));
 		name.setCellValueFactory(new PropertyValueFactory<UserTable, String>("name"));
 		addr.setCellValueFactory(new PropertyValueFactory<UserTable, String>("addr"));
-		gender.setCellValueFactory(new PropertyValueFactory<UserTable, String>("gender"));
+		gender.setCellValueFactory(new PropertyValueFactory<UserTable, String>(".gender"));
 		phone.setCellValueFactory(new PropertyValueFactory<UserTable, String>("phone"));
 //		UserTable ss = new UserTable(4, "admin", "test", "test", "test", "test");
 //		list.add(ss);
@@ -60,7 +63,73 @@ public class UserSearchView implements Initializable {
 		}
 
 		table.setItems(list);
-		comboBox.setItems(comboList);
+		searchType.setItems(comboList);
 
+	}
+
+	@FXML
+	public void search() {
+		ArrayList<UserTable> tempUsers = new ArrayList<UserTable>();
+		switch (searchType.getValue().toString()) {
+		case "userNo":
+			for (int i = 0; i < users.size(); i++) {
+				if (users.get(i).getUserNo() == Integer.parseInt(tfKeyword.getText())) {
+					tempUsers.add(users.get(i));
+					break;
+				}
+			}
+			break;
+		case "id":
+			for (int i = 0; i < users.size(); i++) {
+				if (users.get(i).getId().equals(tfKeyword.getText())) {
+					tempUsers.add(users.get(i));
+					break;
+				}
+			}
+			break;
+		case "name":
+			for (int i = 0; i < users.size(); i++) {
+				if (users.get(i).getName().equals(tfKeyword.getText())) {
+					tempUsers.add(users.get(i));
+				}
+			}
+			break;
+		case "addr":
+			for (int i = 0; i < users.size(); i++) {
+				if (users.get(i).getAddr().contains(tfKeyword.getText())) {
+					tempUsers.add(users.get(i));
+				}
+			}
+			break;
+		case "gender":
+			for (int i = 0; i < users.size(); i++) {
+				if (users.get(i).getGender().equals(tfKeyword.getText())) {
+					tempUsers.add(users.get(i));
+				}
+			}
+			break;
+		case "phone":
+			for (int i = 0; i < users.size(); i++) {
+				if (users.get(i).getPhone().contains(tfKeyword.getText())) {
+					tempUsers.add(users.get(i));
+				}
+			}
+			break;
+
+		}
+		list.clear();
+		for (int i = 0; i < tempUsers.size(); i++) {
+			list.add(tempUsers.get(i));
+		}
+		table.setItems(list);
+	}
+
+	@FXML
+	public void refresh() {
+		list.clear();
+		for (int i = 0; i < users.size(); i++) {
+			list.add(users.get(i));
+		}
+		table.setItems(list);
 	}
 }
